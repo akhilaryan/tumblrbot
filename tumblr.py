@@ -20,4 +20,4 @@ requests_log.propagate = True
 
 c = requests.post('https://www.tumblr.com/login', data=payload)
 r = requests.get('https://www.tumblr.com/customize/itsakhilaryan')
-print 'blog' in c.content
+print r.text
