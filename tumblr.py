@@ -4,10 +4,8 @@ import httplib
 
 s = requests.Session()
 
-payload = {
-	'username':'akhilaryan@ymail.com',
-	'password':'oneshopio'
-}
+
+s.auth = ('akhilaryan@ymail.com','oneshopio')
 
 httplib.HTTPConnection.debuglevel = 1
 
@@ -17,8 +15,10 @@ requests_log = logging.getLogger("requests.packages.urllib3")
 requests_log.setLevel(logging.DEBUG)
 requests_log.propagate = True
 
-c = s.post('https://www.tumblr.com/login', data=payload)
+#Login
+c = s.post('https://www.tumblr.com/login')
 
+#Redirect to customize page
 r = s.get('https://www.tumblr.com/customize/itsakhilaryan')
 print r.status_code
 
